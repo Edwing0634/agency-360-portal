@@ -158,4 +158,4 @@ MIT © [Edwin González](https://github.com/Edwing0634)
 **Edwin González** — Customer Intelligence Specialist & Full-Stack Developer
 
 [![GitHub](https://img.shields.io/badge/GitHub-Edwing0634-black?logo=github)](https://github.com/Edwing0634)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://linkedin.com/in/Edwin gonzalez)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://linkedin.com/in/edwin-gonzalez-LLM-RPA)
