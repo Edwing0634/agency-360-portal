@@ -9,16 +9,6 @@
 
 ---
 
-## 📸 Screenshots
-
-| Login | Admin Dashboard | Rankings |
-|-------|----------------|----------|
-| ![login](docs/screenshots/login.png) | ![dashboard](docs/screenshots/dashboard.png) | ![rankings](docs/screenshots/rankings.png) |
-
-> *Screenshots with live demo data — no real company information*
-
----
-
 ## ✨ Features
 
 - **Role-Based Access Control** — Admin, Senior, GA (Agency Manager), GU (Unit Manager) with domain-restricted login
