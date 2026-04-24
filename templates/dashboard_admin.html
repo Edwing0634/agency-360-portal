@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard — 360 Portal{% endblock %}
+
+{% block content %}
+<h4 class="fw-bold mb-4"><i class="bi bi-speedometer2 me-2 text-primary"></i>Admin Dashboard</h4>
+
+<!-- KPI Cards -->
+<div class="row g-3 mb-4">
+  <div class="col-md-3">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start">
+          <div>
+            <p class="text-muted small mb-1">Active Agents</p>
+            <h3 class="fw-bold mb-0">{{ kpis.active_agents }}</h3>
+            <small class="text-muted">of {{ kpis.total_agents }} total</small>
+          </div>
+          <div class="bg-primary bg-opacity-10 rounded-3 p-2">
+            <i class="bi bi-people-fill text-primary fs-4"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start">
+          <div>
+            <p class="text-muted small mb-1">Monthly Production</p>
+            <h3 class="fw-bold mb-0" id="kpi-production">
+              ${{ "{:,.0f}".format(kpis.monthly_production) }}
+            </h3>
+            <small class="text-muted">COP</small>
+          </div>
+          <div class="bg-success bg-opacity-10 rounded-3 p-2">
+            <i class="bi bi-cash-stack text-success fs-4"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start">
+          <div>
+            <p class="text-muted small mb-1">Achievement</p>
+            <h3 class="fw-bold mb-0
+              {% if kpis.achievement_pct >= 100 %}text-success
+              {% elif kpis.achievement_pct >= 80 %}text-warning
+              {% else %}text-danger{% endif %}">
+              {{ kpis.achievement_pct }}%
+            </h3>
+            <small class="text-muted">vs target</small>
+          </div>
+          <div class="bg-warning bg-opacity-10 rounded-3 p-2">
+            <i class="bi bi-graph-up-arrow text-warning fs-4"></i>
+          </div>
+        </div>
+        <div class="progress mt-2" style="height:4px">
+          <div class="progress-bar
+            {% if kpis.achievement_pct >= 100 %}bg-success
+            {% elif kpis.achievement_pct >= 80 %}bg-warning
+            {% else %}bg-danger{% endif %}"
+            style="width:{{ [kpis.achievement_pct, 100] | min }}%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start">
+          <div>
+            <p class="text-muted small mb-1">Collections</p>
+            <h3 class="fw-bold mb-0 text-info">{{ kpis.collections_pct }}%</h3>
+            <small class="text-muted">retention rate</small>
+          </div>
+          <div class="bg-info bg-opacity-10 rounded-3 p-2">
+            <i class="bi bi-arrow-repeat text-info fs-4"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Rankings Table -->
+<div class="card border-0 shadow-sm">
+  <div class="card-header bg-white border-0 pt-3">
+    <h6 class="fw-bold mb-0"><i class="bi bi-trophy me-2 text-warning"></i>Top Performers — This Month</h6>
+  </div>
+  <div class="card-body p-0">
+    <table class="table table-hover mb-0">
+      <thead class="table-light">
+        <tr>
+          <th class="ps-3">#</th>
+          <th>Agent</th>
+          <th>Unit</th>
+          <th class="text-end">Production</th>
+          <th class="text-end pe-3">Achievement</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in rankings %}
+        <tr>
+          <td class="ps-3">
+            {% if loop.index == 1 %}<i class="bi bi-trophy-fill text-warning"></i>
+            {% elif loop.index == 2 %}<i class="bi bi-trophy-fill text-secondary"></i>
+            {% elif loop.index == 3 %}<i class="bi bi-trophy-fill text-danger"></i>
+            {% else %}{{ loop.index }}{% endif %}
+          </td>
+          <td class="fw-semibold">{{ r.agent_name }}</td>
+          <td><span class="badge bg-light text-dark">{{ r.unit }}</span></td>
+          <td class="text-end">${{ "{:,.0f}".format(r.production) }}</td>
+          <td class="text-end pe-3">
+            <span class="badge
+              {% if r.achievement >= 100 %}bg-success
+              {% elif r.achievement >= 80 %}bg-warning text-dark
+              {% else %}bg-danger{% endif %}">
+              {{ r.achievement }}%
+            </span>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

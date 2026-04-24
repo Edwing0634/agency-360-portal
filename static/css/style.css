@@ -1,0 +1,36 @@
+:root {
+  --sidebar-width: 200px;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: #f0f2f5;
+}
+
+.sidebar .nav-link {
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  transition: background 0.15s, color 0.15s;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff !important;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+.navbar {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.progress {
+  border-radius: 99px;
+}
+
+.table > :not(caption) > * > * {
+  padding: 0.85rem 0.75rem;
+}

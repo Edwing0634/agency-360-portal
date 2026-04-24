@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Environment
+.env
+.env.local
+.env.production
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Data files
+*.csv
+*.xlsx
+*.xls
+*.db
+*.sqlite
+
+# Build
+dist/
+build/
+*.egg-info/
+*.spec
+
+# Logs
+logs/
+*.log
+
+# PyInstaller
+*.exe
+*.pkg
