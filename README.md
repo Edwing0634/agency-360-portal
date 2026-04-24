@@ -9,6 +9,14 @@
 
 ---
 
+## 🏭 Background
+
+Designed to replace spreadsheet-based tracking for a **130+ agent sales force at a multinational insurance company in Colombia**. The 4-role hierarchy (Admin → Senior → GA → GU), Elite Club rankings, and KPI dashboard were built around the actual reporting structure of the commercial team — where agency managers need to track their units independently while senior leadership sees the full picture.
+
+Packaging as a `.exe` was a hard requirement: the target users are field managers without IT support, running Windows machines that can't expose internal DB ports to the web.
+
+---
+
 ## ✨ Features
 
 - **Role-Based Access Control** — Admin, Senior, GA (Agency Manager), GU (Unit Manager) with domain-restricted login
